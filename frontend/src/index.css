@@ -111,7 +111,7 @@ h3 {
 .form,
 .content {
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
 }
 
 .form-group {
@@ -212,4 +212,11 @@ h3 {
   .heading p {
     font-size: 1.5rem;
   }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
 }

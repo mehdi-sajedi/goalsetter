@@ -1,6 +1,5 @@
 const asyncHandler = require('express-async-handler');
 const Goal = require('../models/goalModel');
-const User = require('../models/userModel');
 
 // @desc   Get goals
 // @route  GET /api/goals
@@ -38,14 +37,12 @@ const updateGoal = asyncHandler(async (req, res) => {
     throw new Error('Goal not found');
   }
 
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
+  if (!req.user) {
     res.status(400);
     throw new Error('User not found');
   }
 
-  if (user.id !== goal.user.toString()) {
+  if (req.user.id !== goal.user.toString()) {
     res.status(401);
     throw new Error('User not authorized');
   }
@@ -67,14 +64,12 @@ const deleteGoal = asyncHandler(async (req, res) => {
     throw new Error('Goal not found');
   }
 
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
+  if (!req.user) {
     res.status(400);
     throw new Error('User not found');
   }
 
-  if (user.id !== goal.user.toString()) {
+  if (req.user.id !== goal.user.toString()) {
     res.status(401);
     throw new Error('User not authorized');
   }
