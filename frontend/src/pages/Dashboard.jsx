@@ -1,11 +1,17 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGoals, reset } from '../features/goals/goalSlice';
 import GoalForm from '../components/GoalForm';
 import GoalItem from '../components/GoalItem';
+import EditModal from '../components/EditModal';
 
 const Dashboard = () => {
+  const [editing, setEditing] = useState({
+    active: false,
+    goalId: '',
+  });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -31,6 +37,8 @@ const Dashboard = () => {
     };
   }, [navigate, user, isError, message, dispatch]);
 
+
+
   return (
     <>
       <section className="heading">
@@ -42,13 +50,14 @@ const Dashboard = () => {
         {goals.length > 0 ? (
           <div className="goals">
             {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
+              <GoalItem key={goal._id} goal={goal} setEditing={setEditing} />
             ))}
           </div>
         ) : (
           <h3>You have not set any goals</h3>
         )}
       </section>
+      {editing.active && <EditModal editing={editing} setEditing={setEditing} />}
     </>
   );
 };

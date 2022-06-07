@@ -9,6 +9,7 @@ const GoalForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (text === '') return;
     dispatch(createGoal({ text }));
     setText('');
   };
@@ -27,7 +28,7 @@ const GoalForm = () => {
           />
         </div>
         <div className="form-group">
-          <button className="btn btn-block" type="submit">
+          <button className="btn btn-block add-goal" type="submit">
             Add Goal
           </button>
         </div>
