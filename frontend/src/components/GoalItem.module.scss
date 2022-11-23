@@ -1,0 +1,46 @@
+.goal {
+  background-color: rgb(245, 245, 245);
+  padding: 20px;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.08);
+  border: 1px solid #bbb;
+
+  .date {
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 15px;
+  }
+
+  .text {
+    max-width: 85%;
+    margin: 3px auto 10px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding: 5px 0;
+    letter-spacing: 0.25px;
+    font-size: 22px;
+  }
+
+  button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background: none;
+    right: 15px;
+  }
+
+  .close {
+    top: 10px;
+    font-size: 20px;
+  }
+
+  .editBtn {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background: none;
+    bottom: 10px;
+    font-size: 17px;
+  }
+}

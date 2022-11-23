@@ -1,0 +1,63 @@
+@import '../app.scss';
+
+.btn {
+  @include btn;
+}
+
+.btnBlock {
+  @include btnBlock;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    font-weight: 700;
+    font-size: 48px;
+  }
+
+  h3 {
+    margin-top: 20px;
+    font-size: 32px;
+    color: #828282;
+    font-weight: 600;
+  }
+}
+
+.form {
+  width: 70%;
+  margin: 0 auto 4rem;
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+
+  .formGroup {
+    margin-bottom: 8px;
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    label {
+      text-align: left;
+      display: block;
+      margin: 0 0 5px 3px;
+    }
+  }
+}

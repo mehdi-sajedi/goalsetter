@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { login, reset } from '../features/auth/authSlice';
 import { FaSignInAlt } from 'react-icons/fa';
 import Spinner from '../components/Spinner';
+import styles from './Login.module.scss';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -56,18 +57,17 @@ const Login = () => {
 
   return (
     <>
-      <section className="heading">
-        <h1 className="flex">
+      <section className={styles.heading}>
+        <h1 className={styles.title}>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login and start setting goals</p>
+        <h3>Login and start setting goals</h3>
       </section>
-      <section className="form">
+      <section className={styles.form}>
         <form onSubmit={onSubmit}>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="email"
-              className="form-control"
               id="email"
               name="email"
               value={email}
@@ -75,10 +75,9 @@ const Login = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="password"
-              className="form-control"
               id="password"
               name="password"
               value={password}
@@ -86,8 +85,11 @@ const Login = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-block">
+          <div className={styles.formGroup}>
+            <button
+              type="submit"
+              className={`${styles.btn} ${styles.btnBlock}`}
+            >
               Login
             </button>
           </div>

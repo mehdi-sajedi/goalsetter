@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import { register, reset } from '../features/auth/authSlice';
 import Spinner from '../components/Spinner';
+import styles from './Register.module.scss';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Register = () => {
     if (isSuccess || user) {
       navigate('/');
     }
-    
+
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
@@ -62,18 +63,18 @@ const Register = () => {
 
   return (
     <>
-      <section className="heading">
-        <h1 className="flex">
+      <section className={styles.heading}>
+        <h1 className={styles.title}>
           <FaUser /> Register
         </h1>
-        <p>Please create an account</p>
+        <h3>Please create an account</h3>
       </section>
-      <section className="form">
+      <section className={styles.form}>
         <form onSubmit={onSubmit}>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="text"
-              className="form-control"
+              className="form-controlX"
               id="name"
               name="name"
               value={name}
@@ -81,10 +82,10 @@ const Register = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="email"
-              className="form-control"
+              className="form-controlX"
               id="email"
               name="email"
               value={email}
@@ -92,10 +93,10 @@ const Register = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="password"
-              className="form-control"
+              className="form-controlX"
               id="password"
               name="password"
               value={password}
@@ -103,10 +104,10 @@ const Register = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <input
               type="password"
-              className="form-control"
+              className="form-controlX"
               id="password2"
               name="password2"
               value={password2}
@@ -114,8 +115,11 @@ const Register = () => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-block">
+          <div className={styles.formGroup}>
+            <button
+              type="submit"
+              className={`${styles.btn} ${styles.btnBlock}`}
+            >
               Submit
             </button>
           </div>

@@ -1,17 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGoals, reset } from '../features/goals/goalSlice';
 import GoalForm from '../components/GoalForm';
 import GoalItem from '../components/GoalItem';
-import EditModal from '../components/EditModal';
+import styles from './Dashboard.module.scss';
 
 const Dashboard = () => {
-  const [editing, setEditing] = useState({
-    active: false,
-    goalId: '',
-  });
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -28,7 +23,6 @@ const Dashboard = () => {
     }
 
     if (!user) {
-      console.log('!user');
       navigate('/login');
     }
 
@@ -37,27 +31,24 @@ const Dashboard = () => {
     };
   }, [navigate, user, isError, message, dispatch]);
 
-
-
   return (
     <>
-      <section className="heading">
+      <section className={styles.heading}>
         <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        <h3>Goals Dashboard</h3>
       </section>
       <GoalForm />
-      <section className="content">
+      <section className={styles.content}>
         {goals.length > 0 ? (
-          <div className="goals">
+          <div className={styles.goals}>
             {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} setEditing={setEditing} />
+              <GoalItem key={goal._id} goal={goal} />
             ))}
           </div>
         ) : (
           <h3>You have not set any goals</h3>
         )}
       </section>
-      {editing.active && <EditModal editing={editing} setEditing={setEditing} />}
     </>
   );
 };

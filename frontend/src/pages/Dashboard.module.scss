@@ -1,0 +1,29 @@
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 48px;
+    text-transform: capitalize;
+  }
+
+  h3 {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #828282;
+    font-weight: 600;
+  }
+}
+
+.content {
+  width: 70%;
+  margin: 0 auto 4rem;
+}
+
+.goals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  gap: 20px;
+}
