@@ -6,6 +6,7 @@ import { FaUser } from 'react-icons/fa';
 import { register, reset } from '../features/auth/authSlice';
 import Spinner from '../components/Spinner';
 import styles from './Register.module.scss';
+import { toastConfig } from '../utilities/toastConfig';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const Register = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message,  toastConfig);
     }
     if (isSuccess || user) {
       navigate('/');
@@ -45,7 +46,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (password !== password2) {
-      toast.error('Passwords do not match');
+      toast.error('Passwords do not match', toastConfig);
     } else {
       const userData = {
         name,

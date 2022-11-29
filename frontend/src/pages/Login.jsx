@@ -6,6 +6,7 @@ import { login, reset } from '../features/auth/authSlice';
 import { FaSignInAlt } from 'react-icons/fa';
 import Spinner from '../components/Spinner';
 import styles from './Login.module.scss';
+import { toastConfig } from '../utilities/toastConfig';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, toastConfig);
     }
     if (isSuccess || user) {
       navigate('/');
