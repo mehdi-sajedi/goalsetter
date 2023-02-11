@@ -1,5 +1,5 @@
 .goal {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(246, 246, 246);
   padding: 20px;
   position: relative;
   border-radius: 3px;
@@ -31,8 +31,9 @@
   }
 
   .close {
-    top: 10px;
     font-size: 20px;
+    top: 10px;
+    right: 15px;
   }
 
   .editBtn {
@@ -40,7 +41,8 @@
     cursor: pointer;
     border: none;
     background: none;
-    bottom: 10px;
     font-size: 17px;
+    right: 15px;
+    bottom: 10px;
   }
 }
